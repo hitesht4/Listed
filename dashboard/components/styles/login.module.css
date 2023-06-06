@@ -1,0 +1,192 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 37% 63%;
+}
+
+.Banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat";
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 88px;
+  letter-spacing: 0em;
+  text-align: left;
+  background: #000000;
+  color: #ffffff;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+}
+.Login {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 45%;
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.heading > h2 {
+  font-size: 36px;
+  font-family: "Montserrat";
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.heading > p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 1.4rem 0;
+}
+
+.flex button {
+  background: #ffffff;
+  font-family: "Montserrat";
+  font-weight: 400;
+  border: none;
+  width: 50%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.flex svg {
+  font-size: 1rem;
+}
+.Login form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  gap: 1rem;
+  background: #ffffff;
+  border-radius: 18px;
+}
+
+.form div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form label {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.form input {
+  height: 44px;
+  padding: 0 1rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background: #f5f5f5;
+}
+
+.form p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #346bd4;
+  cursor: pointer;
+}
+
+.form button {
+  background: #000000;
+  border: none;
+  height: 44px;
+  width: 100%;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.link {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  margin-top: 1rem;
+}
+.link span {
+  color: #346bd4;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .Banner {
+    display: none;
+  }
+
+  .Login {
+    width: 60%;
+  }
+
+  .flex button {
+    width: 50%;
+    gap: 0.7rem;
+    padding: 1.5rem 1rem;
+  }
+  .flex svg {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .Banner {
+    display: none;
+  }
+
+  .Login {
+    padding: 0;
+    width: 90%;
+  }
+
+  .flex button {
+    width: 50%;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+  }
+  .flex svg {
+    font-size: 1.5rem;
+  }
+}

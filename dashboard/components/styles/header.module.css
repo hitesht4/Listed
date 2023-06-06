@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem;
+  width: 100%;
+}
+
+.Head {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.info {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.searchBar input {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 180px;
+  height: 30px;
+  padding: 0 1rem;
+  border: none;
+  outline: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.searchBar svg {
+  position: absolute;
+  right: 14px;
+  font-size: 1rem;
+}
+
+.info img:nth-child(3) {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}

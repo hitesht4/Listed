@@ -1,0 +1,67 @@
+.container {
+  height: 300px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+}
+
+.Labels {
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Labels p {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+.Labels select {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #858585;
+  margin-top: 5px;
+  border: none;
+  margin-left: -5px;
+  outline: none;
+}
+.tickers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+.ticker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+.ticker:nth-child(1) div {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #e9a0a0;
+}
+.ticker:nth-child(2) div {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #9bdd7c;
+}
+
+.chart {
+  height: 80%;
+  padding: 0.5rem 0;
+}

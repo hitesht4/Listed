@@ -1,0 +1,104 @@
+.container {
+  height: 240px;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 20px;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20%;
+  width: 90%;
+  margin: auto;
+}
+.info p {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+.info select {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #858585;
+  border: none;
+  outline: none;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  height: 80% !important;
+  width: 80%;
+  margin: auto;
+}
+.data > div {
+  flex: 1;
+}
+
+.chart {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.labels {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+.tickerss {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+.ticker {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.tickerss p {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #858585;
+  margin-left: calc(0.5rem + 14px);
+}
+
+.one {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #98d89e;
+}
+.two {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #f6dc7d;
+}
+.three {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #ee8484;
+}
