@@ -1,9 +1,8 @@
 .Cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 120px;
+  grid-template-rows: 115px;
   grid-gap: 2rem;
-  padding: 1.5rem 0.4rem;
 }
 .card {
   display: flex;
@@ -46,4 +45,14 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 33px;
+}
+@media only screen and (max-width: 1024px) {
+  .Cards {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    grid-gap: 1rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
 }
