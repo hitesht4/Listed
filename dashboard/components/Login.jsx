@@ -1,22 +1,27 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./styles/login.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { SiApple } from "react-icons/si";
 import { useRouter } from "next/navigation";
 import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import Loader from "./Loader";
 
 const Login = () => {
   const router = useRouter();
-  const { data: session } = useSession();
+  const { status: session } = useSession();
 
   const handleClick = async () => {
     await signIn("google");
   };
-  // if (session) {
-  //   router.push("/dashboard");
-  // }
+  console.log(session);
+  if (session === "loading") {
+    return <Loader />;
+  }
+  if (session === "authenticated") {
+    return router.push("/dashboard");
+  }
   return (
     <div className={styles.container}>
       <div className={styles.Banner}>Board.</div>
@@ -32,7 +37,7 @@ const Login = () => {
               <FcGoogle />
               Sign in with Google
             </button>
-            <button onClick={() => signOut()}>
+            <button>
               <SiApple />
               Signin with Google
             </button>
@@ -48,7 +53,7 @@ const Login = () => {
             </div>
 
             <p>Forgot Password ?</p>
-            <button type="submit">Sign In</button>
+            <button>Sign In</button>
           </form>
           <p className={styles.link}>
             Don’t have an account? <span>Register here</span>

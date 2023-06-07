@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import options from "../utils/options2";
 import { ArcElement, Chart as ChartJS } from "chart.js";
 ChartJS.register(ArcElement);
 import styles from "./styles/pie.module.css";
+import axios from "axios";
 
 const PieChart = () => {
-  const data = {
-    labels: ["Red", "Blue", "Yellow"],
-    datasets: [
-      {
-        data: [30, 50, 20],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      },
-    ],
+  const [Items, setItems] = useState({});
+  const getData = async () => {
+    let {
+      data: { data },
+    } = await axios.get("/api/products");
+    const chartData = data.reduce((acc, item) => {
+      if (acc[item.category]) {
+        acc[item.category]++;
+      } else {
+        acc[item.category] = 1;
+      }
+      return acc;
+    });
+    delete chartData["_id"];
+    delete chartData["id"];
+    delete chartData["category"];
+
+    setItems({ ...chartData });
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.info}>
@@ -26,7 +41,19 @@ const PieChart = () => {
       </div>
       <div className={styles.data}>
         <div className={styles.chart}>
-          <Pie data={data} options={options} />
+          <Pie
+            data={{
+              labels: Object.keys(Items),
+              datasets: [
+                {
+                  data: Object.values(Items),
+                  backgroundColor: ["#98d89e", "#f6dc7d", "#ee8484"],
+                  hoverBackgroundColor: ["#98d89e", "#f6dc7d", "#ee8484"],
+                },
+              ],
+            }}
+            options={options}
+          />
         </div>
         <div className={styles.labels}>
           <div className={styles.tickerss}>
@@ -34,21 +61,21 @@ const PieChart = () => {
               <div className={styles.one}></div>
               Basic Tees
             </div>
-            <p>55%</p>
+            <p>{((Items["Basic Tees"] / 1000) * 100).toFixed(2)}%</p>
           </div>
           <div className={styles.tickerss}>
             <div className={styles.ticker}>
               <div className={styles.two}></div>
               Custom Short Pants
             </div>
-            <p>31%</p>
+            <p>{((Items["Custom Short Pants"] / 1000) * 100).toFixed(2)}%</p>
           </div>
           <div className={styles.tickerss}>
             <div className={styles.ticker}>
               <div className={styles.three}></div>
               Super Hoodies
             </div>
-            <p>55%</p>
+            <p>{((Items["Super Hoodies"] / 1000) * 100).toFixed(2)}%</p>
           </div>
         </div>
       </div>

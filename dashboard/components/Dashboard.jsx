@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import styles from "./styles/dashboard.module.css";
 import { AiOutlinePieChart } from "react-icons/ai";
@@ -12,8 +11,22 @@ import Cards from "./Cards";
 import LineChart from "./LineChart";
 import PieChart from "./PieChart";
 import Last from "./Last";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import Loader from "./Loader";
 
 const Dashboard = () => {
+  const { status: session, data } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/");
+    },
+  });
+
+  if (session === "loading") {
+    return <Loader />;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.dashboard}>
@@ -46,7 +59,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className={styles.contents}>
-          <Header />
+          <Header data={data} />
           <Cards />
           <LineChart />
           <div className={styles.options}>

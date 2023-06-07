@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./styles/header.module.css";
 import { CiSearch } from "react-icons/ci";
 import Image from "next/image";
 import bell from "../public/bell.png";
-import { useSession } from "next-auth/react";
-import profile from "../public/profile.png";
+import { FaPowerOff } from "react-icons/fa";
+import { signOut } from "next-auth/react";
+import { redirect } from "next/navigation";
 
-const Header = () => {
-  const { data: session } = useSession();
-
+const Header = ({ data }) => {
+  const handleSignout = () => {
+    signOut();
+    redirect("/");
+  };
   return (
     <div className={styles.header}>
       <div className={styles.Head}>Dashboard</div>
@@ -18,7 +21,17 @@ const Header = () => {
           <CiSearch />
         </div>
         <Image src={bell} alt="" />
-        <Image src={profile} alt="" />
+        <FaPowerOff
+          style={{ width: "20px", height: "20px", cursor: "pointer" }}
+          onClick={handleSignout}
+        />
+        <Image
+          src={data?.user?.image}
+          alt=""
+          width="20"
+          height={20}
+          className={styles.Therd}
+        />
       </div>
     </div>
   );

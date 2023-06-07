@@ -1,11 +1,13 @@
+"use client";
 import Dashboard from "@/components/Dashboard";
+import Loader from "@/components/Loader";
 import React from "react";
 
 const page = () => {
   return (
-    <div>
+    <>
       <Dashboard />
-    </div>
+    </>
   );
 };
 
