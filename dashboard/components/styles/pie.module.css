@@ -41,14 +41,13 @@
 .data > div {
   flex: 1;
 }
-
 .chart {
   flex: 1;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 .labels {
   flex: 1;
